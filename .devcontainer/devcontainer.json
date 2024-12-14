@@ -4,12 +4,18 @@
     "settings": {
         "terminal.integrated.shell.linux": "/bin/bash"
     },
+    "mounts":[
+        "source=<put_path_to_raw_exposure_imgs_here>,target=/Ingestion,type=bind,consistency=cached"
+    ],
     "forwardPorts": [
         8888
     ],
     "containerEnv": {
         "COLOUR_SCIENCE__ROOT_DIRECTORY": "/workspaces/colour-science.devcontainer",
-        "COLOUR_SCIENCE__ACTIVE_PROJECTS": "colour"
+        "COLOUR_SCIENCE__ACTIVE_PROJECTS": [
+            "colour-hdri",
+            "colour",
+        ]
     },
     "postCreateCommand": "ansible-playbook -vvv --connection=local --inventory 127.0.0.1, $COLOUR_SCIENCE__ROOT_DIRECTORY/colour-science-ansible/ansible/site.yml",
     "extensions": [
