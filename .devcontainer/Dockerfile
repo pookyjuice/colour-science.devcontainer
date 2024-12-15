@@ -14,3 +14,9 @@ RUN apt-get -y update \
     && apt-get clean -y
 ADD https://astral.sh/uv/install.sh /install.sh
 RUN chmod -R 655 /install.sh && /install.sh && rm /install.sh
+RUN apt-get update && apt-get install -y locales && \
+    locale-gen en_US.UTF-8 && \
+    update-locale LANG=en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8

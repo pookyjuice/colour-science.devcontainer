@@ -5,7 +5,7 @@
         "terminal.integrated.shell.linux": "/bin/bash"
     },
     "mounts":[
-        "source=<put_path_to_raw_exposure_imgs_here>,target=/Ingestion,type=bind,consistency=cached"
+        "source=C:/Users/Malik/Downloads/NIKON_Z9/NIKON_Z9/SUN_SHOT_IMAGES/NEF,target=/Ingestion,type=bind,consistency=cached"
     ],
     "forwardPorts": [
         8888
@@ -17,7 +17,8 @@
             "colour",
         ]
     },
-    "postCreateCommand": "ansible-playbook -vvv --connection=local --inventory 127.0.0.1, $COLOUR_SCIENCE__ROOT_DIRECTORY/colour-science-ansible/ansible/site.yml",
+    "postCreateCommand": "ansible-playbook -vvv --connection=local --inventory 127.0.0.1, $COLOUR_SCIENCE__ROOT_DIRECTORY/colour-science-ansible/ansible/site.yml && git config --global user.name 'Malik' && git config --global user.email 'malikwilliams@gmail.com'",
+    "postStartCommand": "echo 'Container is ready to use!'",
     "extensions": [
         "ms-python.python"
     ]
