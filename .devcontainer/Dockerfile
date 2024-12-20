@@ -8,7 +8,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get -y update \
     && apt-get -y install software-properties-common \
     && add-apt-repository -y --update ppa:ansible/ansible \
-    && apt-get install git \
+    && apt-get -y install git \
     && apt-get -y install ansible \
     && apt-get -y install curl \
     && apt-get autoremove -y \
