@@ -20,3 +20,8 @@ RUN apt-get update && apt-get install -y locales && \
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
+RUN apt-get update && \
+    apt-get install -y software-properties-common && \
+    add-apt-repository ppa:ubuntuhandbook1/rawtherapee && \
+    apt-get update && \
+    apt-get install -y rawtherapee
